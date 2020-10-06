@@ -99,7 +99,7 @@ console.log(kodok.Alegs);
 
 class Clock {
 
-    constructor(template){
+    constructor({template}){
 
 this.template=template;
 this.timer;
@@ -116,14 +116,14 @@ this.timer;
             let secs = date.getSeconds();
             if (secs < 10) secs = '0' + secs;
         
-            let output = template
+            let output = this.template
               .replace('h', hours)
               .replace('m', mins)
               .replace('s', secs);
         
             console.log(output);
 
-
+        }
             
             stop ()
             {
@@ -135,7 +135,7 @@ this.timer;
                this.timer=setInterval(this.render.bind(this), 1000);
               }
     }
-}
+  
 
 var clock = new Clock({template: 'h:m:s'});
 clock.start();
